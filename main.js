@@ -50,6 +50,91 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Do not refuse a meal or a drink when offered by a host, as it can be seen as disrespectful.'
                     ]
                 };
+            case 'italy':
+                return {
+                    dos: [
+                        'Greet people with "Buongiorno" in the morning and "Buonasera" in the evening.',
+                        'Dress smartly, especially when visiting churches or upscale restaurants.',
+                        'Expect to pay a cover charge ("coperto") in restaurants.',
+                        'Enjoy a leisurely meal; rushing is not part of the dining culture.',
+                        'Take part in the "passeggiata" (evening stroll).'
+                    ],
+                    donts: [
+                        'Do not order a cappuccino after 11 a.m.',
+                        'Avoid asking for extra cheese on your pizza or pasta unless offered.',
+                        'Do not expect a large breakfast; a coffee and pastry is typical.',
+                        'Don\'t put cheese on seafood pasta.',
+                        'Do not be too loud in churches and religious sites.'
+                    ]
+                };
+            case 'thailand':
+                return {
+                    dos: [
+                        'Show respect for the King and the royal family.',
+                        'Smile often; it is a key part of Thai culture.',
+                        'Remove your shoes before entering a temple or someone\'s home.',
+                        'The "wai" is the traditional Thai greeting.',
+                        'Bargain with a smile in markets.'
+                    ],
+                    donts: [
+                        'Do not touch someone\'s head, as it is considered the most sacred part of the body.',
+                        'Avoid pointing your feet at people or religious images.',
+                        'Do not show disrespect for images of the Buddha.',
+                        'Do not raise your voice or show anger in public.',
+                        'Women should not touch a monk.'
+                    ]
+                };
+            case 'egypt':
+                return {
+                    dos: [
+                        'Be prepared for warm hospitality and generosity.',
+                        'Use your right hand for eating and shaking hands.',
+                        'Dress conservatively, especially women.',
+                        'Haggling is expected in markets.',
+                        'Accept offers of tea or coffee as a sign of hospitality.'
+                    ],
+                    donts: [
+                        'Do not drink alcohol in public outside of licensed venues.',
+                        'Avoid public displays of affection.',
+                        'Do not take photographs of people without their permission.',
+                        'Do not discuss sensitive political or religious topics.',
+                        'Women should avoid direct eye contact with men they don\'t know.'
+                    ]
+                };
+            case 'brazil':
+                return {
+                    dos: [
+                        'Be prepared for close physical contact and expressive communication.',
+                        'The "thumbs-up" gesture is a common sign of approval.',
+                        'Punctuality is not as strict as in many other cultures.',
+                        'It is common to be offered coffee in social and business settings.',
+                        'Family is very important, and it\'s polite to ask about someone\'s family.'
+                    ],
+                    donts: [
+                        'Avoid making the "OK" hand gesture, as it is considered offensive.',
+                        'Do not be offended by interruptions during conversations.',
+                        'Avoid discussing Argentina, Brazil\'s main football rival.',
+                        'Do not be afraid to show emotion; Brazilians are generally very expressive.',
+                        'Avoid wearing green and yellow together, as it is associated with the national flag and can be seen as nationalistic.'
+                    ]
+                };
+            case 'australia':
+                return {
+                    dos: [
+                        'Use "please" and "thank you"; politeness is valued.',
+                        'Tipping is not expected, but is appreciated for good service.',
+                        'It is common to bring your own drinks ("BYO") to a party or restaurant.',
+                        'Be punctual for appointments and meetings.',
+                        'Barbecues ("barbies") are a popular social gathering.'
+                    ],
+                    donts: [
+                        'Do not jump the queue (line).',
+                        'Avoid talking loudly on your phone in quiet public places.',
+                        'Do not swim outside of the red and yellow flags at the beach.',
+                        'Do not underestimate the size of the country and travel times.',
+                        'Do not touch the wildlife.'
+                    ]
+                };
             default:
                 return {
                     dos: ['Be respectful of local customs.', 'Try to learn a few basic phrases in the local language.', 'Be open-minded and willing to try new things.'],
