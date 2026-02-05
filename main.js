@@ -1,101 +1,76 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const countryInput = document.getElementById('country-input');
+    const submitBtn = document.getElementById('submit-btn');
+    const responseContainer = document.getElementById('response-container');
 
-class TotoGenerator extends HTMLElement {
-  constructor() {
-    super();
-    const shadow = this.attachShadow({ mode: 'open' });
+    submitBtn.addEventListener('click', () => {
+        const country = countryInput.value.trim();
+        if (country) {
+            const advice = getCountryAdvice(country);
+            displayAdvice(advice);
+        } else {
+            responseContainer.innerHTML = '<p>Please enter a country name.</p>';
+        }
+    });
 
-    const wrapper = document.createElement('div');
-    wrapper.setAttribute('class', 'toto-generator');
-
-    const title = document.createElement('h1');
-    title.textContent = 'Toto Number Generator';
-
-    const numbersContainer = document.createElement('div');
-    numbersContainer.setAttribute('class', 'numbers');
-
-    const specialNumberContainer = document.createElement('div');
-    specialNumberContainer.setAttribute('class', 'special-number');
-
-    const button = document.createElement('button');
-    button.textContent = 'Generate Numbers';
-    button.addEventListener('click', () => this.generateNumbers());
-
-    const style = document.createElement('style');
-    style.textContent = `
-      .toto-generator {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: sans-serif;
-      }
-      .numbers {
-        display: flex;
-        gap: 10px;
-        margin: 20px 0;
-      }
-      .number, .special {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        font-weight: bold;
-      }
-      .number {
-        background-color: #eee;
-        color: #333;
-      }
-      .special {
-        background-color: #ffcc00;
-        color: #333;
-      }
-      button {
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: white;
-      }
-    `;
-
-    shadow.appendChild(style);
-    shadow.appendChild(wrapper);
-    wrapper.appendChild(title);
-    wrapper.appendChild(numbersContainer);
-    wrapper.appendChild(specialNumberContainer);
-    wrapper.appendChild(button);
-
-    this.generateNumbers();
-  }
-
-  generateNumbers() {
-    const numbers = new Set();
-    while (numbers.size < 6) {
-      numbers.add(Math.floor(Math.random() * 49) + 1);
+    function getCountryAdvice(country) {
+        const countryLower = country.toLowerCase();
+        switch (countryLower) {
+            case 'japan':
+                return {
+                    dos: [
+                        'Bowing is a customary greeting.',
+                        'Remove your shoes before entering someone\'s home.',
+                        'Slurping your noodles is a sign of enjoyment.',
+                        'Always be on time, as punctuality is highly valued.',
+                        'Carry cash, as many smaller shops and restaurants do not accept credit cards.'
+                    ],
+                    donts: [
+                        'Do not tip, as it can be considered rude.',
+                        'Avoid eating or drinking while walking in public.',
+                        'Do not point at people with your finger; use an open hand instead.',
+                        'Avoid loud conversations on public transportation.',
+                        'Do not stick your chopsticks upright in a bowl of rice, as this is associated with funeral rituals.'
+                    ]
+                };
+            case 'india':
+                return {
+                    dos: [
+                        'Use your right hand for eating and handling money.',
+                        'Dress conservatively, especially when visiting religious sites.',
+                        'Be prepared to bargain when shopping in markets.',
+                        'Respect elders and greet them with \'Namaste\'.',
+                        'Be patient, as things often run on \'Indian Standard Time\'.'
+                    ],
+                    donts: [
+                        'Do not show public displays of affection.',
+                        'Avoid wearing shoes inside a home or temple.',
+                        'Do not be offended by personal questions, as it is a way of showing interest.',
+                        'Avoid pointing your feet at people or religious idols.',
+                        'Do not refuse a meal or a drink when offered by a host, as it can be seen as disrespectful.'
+                    ]
+                };
+            default:
+                return {
+                    dos: ['Be respectful of local customs.', 'Try to learn a few basic phrases in the local language.', 'Be open-minded and willing to try new things.'],
+                    donts: ['Do not assume that everyone speaks English.', 'Avoid making generalizations about the country or its people.', 'Do not be afraid to ask for help if you need it.']
+                };
+        }
     }
 
-    const specialNumber = Math.floor(Math.random() * 49) + 1;
+    function displayAdvice(advice) {
+        let html = '<h2>Do\'s</h2><ul>';
+        advice.dos.forEach(d => {
+            html += `<li>${d}</li>`;
+        });
+        html += '</ul>';
 
-    const numbersContainer = this.shadowRoot.querySelector('.numbers');
-    numbersContainer.innerHTML = '';
-    for (const number of [...numbers].sort((a, b) => a - b)) {
-      const numberDiv = document.createElement('div');
-      numberDiv.setAttribute('class', 'number');
-      numberDiv.textContent = number;
-      numbersContainer.appendChild(numberDiv);
+        html += '<h2>Don\'ts</h2><ul>';
+        advice.donts.forEach(d => {
+            html += `<li>${d}</li>`;
+        });
+        html += '</ul>';
+
+        responseContainer.innerHTML = html;
     }
-
-    const specialNumberContainer = this.shadowRoot.querySelector('.special-number');
-    specialNumberContainer.innerHTML = '';
-    const specialNumberDiv = document.createElement('div');
-    specialNumberDiv.setAttribute('class', 'special');
-    specialNumberDiv.textContent = specialNumber;
-    specialNumberContainer.appendChild(specialNumberDiv);
-  }
-}
-
-customElements.define('toto-generator', TotoGenerator);
+});

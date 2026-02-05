@@ -1,9 +1,57 @@
-
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    font-family: sans-serif;
+    background-color: #f0f2f5;
     margin: 0;
-    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+#chatbot-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#country-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#submit-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#response-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+
+@media (max-width: 600px) {
+    #input-container {
+        flex-direction: column;
+    }
 }
