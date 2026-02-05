@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const countryInput = document.getElementById('country-input');
+    const countrySelect = document.getElementById('country-select');
     const submitBtn = document.getElementById('submit-btn');
     const responseContainer = document.getElementById('response-container');
 
     submitBtn.addEventListener('click', () => {
-        const country = countryInput.value.trim();
+        const country = countrySelect.value;
         if (country) {
             const advice = getCountryAdvice(country);
             displayAdvice(advice);
         } else {
-            responseContainer.innerHTML = '<p>Please enter a country name.</p>';
+            responseContainer.innerHTML = '<p>Please select a country.</p>';
         }
     });
 
@@ -101,44 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Women should avoid direct eye contact with men they don\'t know.'
                     ]
                 };
-            case 'brazil':
-                return {
-                    dos: [
-                        'Be prepared for close physical contact and expressive communication.',
-                        'The "thumbs-up" gesture is a common sign of approval.',
-                        'Punctuality is not as strict as in many other cultures.',
-                        'It is common to be offered coffee in social and business settings.',
-                        'Family is very important, and it\'s polite to ask about someone\'s family.'
-                    ],
-                    donts: [
-                        'Avoid making the "OK" hand gesture, as it is considered offensive.',
-                        'Do not be offended by interruptions during conversations.',
-                        'Avoid discussing Argentina, Brazil\'s main football rival.',
-                        'Do not be afraid to show emotion; Brazilians are generally very expressive.',
-                        'Avoid wearing green and yellow together, as it is associated with the national flag and can be seen as nationalistic.'
-                    ]
-                };
-            case 'australia':
-                return {
-                    dos: [
-                        'Use "please" and "thank you"; politeness is valued.',
-                        'Tipping is not expected, but is appreciated for good service.',
-                        'It is common to bring your own drinks ("BYO") to a party or restaurant.',
-                        'Be punctual for appointments and meetings.',
-                        'Barbecues ("barbies") are a popular social gathering.'
-                    ],
-                    donts: [
-                        'Do not jump the queue (line).',
-                        'Avoid talking loudly on your phone in quiet public places.',
-                        'Do not swim outside of the red and yellow flags at the beach.',
-                        'Do not underestimate the size of the country and travel times.',
-                        'Do not touch the wildlife.'
-                    ]
-                };
             default:
                 return {
-                    dos: ['Be respectful of local customs.', 'Try to learn a few basic phrases in the local language.', 'Be open-minded and willing to try new things.'],
-                    donts: ['Do not assume that everyone speaks English.', 'Avoid making generalizations about the country or its people.', 'Do not be afraid to ask for help if you need it.']
+                    dos: [],
+                    donts: []
                 };
         }
     }

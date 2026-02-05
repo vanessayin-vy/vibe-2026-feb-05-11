@@ -6,10 +6,10 @@ This application is a "Traveller Chatbot" that provides cultural do's and don'ts
 
 ## Style, Design, and Features
 
-### Initial Version
+### Current Version
 
-*   **Input:** A text input field for the user to enter a country name.
-*   **Submit Button:** A button to submit the country name.
+*   **Input:** A dropdown menu to select a country.
+*   **Submit Button:** A "Get" button to submit the country selection.
 *   **Display Area:** A section to display the do's and don'ts provided by the chatbot.
 *   **Styling:**
     *   Clean and simple layout.
@@ -23,14 +23,14 @@ This application is a "Traveller Chatbot" that provides cultural do's and don'ts
 1.  **Create `blueprint.md`:** Document the project overview, design, and plan.
 2.  **Create `index.html`:**
     *   Add a heading for the chatbot.
-    *   Add an input field for the country.
-    *   Add a button to submit.
+    *   Add a dropdown menu for country selection.
+    *   Add a "Get" button to submit.
     *   Add a container for the chatbot's response.
 3.  **Create `style.css`:**
-    *   Add basic styling for the layout, input field, button, and response container.
+    *   Add basic styling for the layout, dropdown, button, and response container.
     *   Use a modern and clean design.
 4.  **Create `main.js`:**
-    *   Add an event listener to the submit button.
-    *   On button click, get the country name from the input field.
-    *   **Chatbot Logic:** For the initial version, when the user provides a country, I will generate the do's and don'ts based on my knowledge.
+    *   Add an event listener to the "Get" button.
+    *   On button click, get the selected country from the dropdown menu.
+    *   **Chatbot Logic:** When the user provides a country, I will generate the do's and don'ts based on my knowledge.
     *   Display the generated do's and don'ts in the response area.
