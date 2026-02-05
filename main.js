@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Apply saved theme on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        if (savedTheme === 'dark-mode') {
+            themeToggle.checked = true;
+        }
+    }
+
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light-mode');
+        }
+    });
+
     const countrySelect = document.getElementById('country-select');
     const submitBtn = document.getElementById('submit-btn');
     const responseContainer = document.getElementById('response-container');
@@ -31,7 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Do not point at people with your finger; use an open hand instead.',
                         'Avoid loud conversations on public transportation.',
                         'Do not stick your chopsticks upright in a bowl of rice, as this is associated with funeral rituals.'
-                    ]
+                    ],
+                    tours: {
+                        'Tokyo Skytree & Asakusa Temple Tour': '#',
+                        'Mt. Fuji & Hakone Day Trip': '#',
+                        'Kyoto and Nara Temples Tour': '#',
+                        'Hiroshima Peace Memorial Park & Miyajima Island': '#',
+                        'Ghibli Museum & Park Experience': '#'
+                    }
                 };
             case 'india':
                 return {
@@ -48,7 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Do not be offended by personal questions, as it is a way of showing interest.',
                         'Avoid pointing your feet at people or religious idols.',
                         'Do not refuse a meal or a drink when offered by a host, as it can be seen as disrespectful.'
-                    ]
+                    ],
+                    tours: {
+                        'Taj Mahal & Agra Fort Day Trip from Delhi': '#',
+                        'Golden Triangle Tour (Delhi, Agra, Jaipur)': '#',
+                        'Kerala Backwaters Houseboat Cruise': '#',
+                        'Old Delhi Street Food Tour': '#',
+                        'Rajasthan Desert Safari': '#'
+                    }
                 };
             case 'italy':
                 return {
@@ -65,7 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Do not expect a large breakfast; a coffee and pastry is typical.',
                         'Don\'t put cheese on seafood pasta.',
                         'Do not be too loud in churches and religious sites.'
-                    ]
+                    ],
+                    tours: {
+                        'Colosseum, Roman Forum & Palatine Hill Tour in Rome': '#',
+                        'Vatican City: St. Peter\'s Basilica & Sistine Chapel': '#',
+                        'Venice Gondola Ride & Serenade': '#',
+                        'Florence: Uffizi & Accademia Galleries': '#',
+                        'Amalfi Coast & Positano Day Trip': '#'
+                    }
                 };
             case 'thailand':
                 return {
@@ -82,7 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Do not show disrespect for images of the Buddha.',
                         'Do not raise your voice or show anger in public.',
                         'Women should not touch a monk.'
-                    ]
+                    ],
+                    tours: {
+                        'Bangkok Grand Palace & Temples Tour': '#',
+                        'Phi Phi Islands Day Trip from Phuket': '#',
+                        'Chiang Mai Elephant Sanctuary & Jungle Trek': '#',
+                        'Ayutthaya Ancient City Tour': '#',
+                        'Damnoen Saduak Floating Market Tour': '#'
+                    }
                 };
             case 'egypt':
                 return {
@@ -99,12 +149,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Do not take photographs of people without their permission.',
                         'Do not discuss sensitive political or religious topics.',
                         'Women should avoid direct eye contact with men they don\'t know.'
-                    ]
+                    ],
+                    tours: {
+                        'Giza Pyramids & Sphinx Tour with Camel Ride': '#',
+                        'Nile River Cruise from Luxor to Aswan': '#',
+                        'Valley of the Kings & Hatshepsut\'s Temple': '#',
+                        'Khan el-Khalili Bazaar & Old Cairo Tour': '#',
+                        'Abu Simbel Temples Day Trip': '#'
+                    }
                 };
             default:
                 return {
                     dos: [],
-                    donts: []
+                    donts: [],
+                    tours: {}
                 };
         }
     }
@@ -121,6 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
             html += `<li>${d}</li>`;
         });
         html += '</ul>';
+
+        html += '<div id="tours-container">';
+        html += '<h2>Suggested Tours & Excursions</h2><ul>';
+        for (const [tour, link] of Object.entries(advice.tours)) {
+            html += `<li><a href="${link}" target="_blank">${tour}</a></li>`;
+        }
+        html += '</ul></div>';
 
         responseContainer.innerHTML = html;
     }

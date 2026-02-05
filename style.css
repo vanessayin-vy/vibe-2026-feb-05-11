@@ -50,8 +50,98 @@ h1 {
     background-color: #fafafa;
 }
 
+#tours-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
 @media (max-width: 600px) {
     #input-container {
         flex-direction: column;
     }
+}
+
+/* Toggle Switch Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+body.dark-mode #chatbot-container {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode h1 {
+    color: #fff;
+}
+
+body.dark-mode #country-select {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark-mode #submit-btn {
+    background-color: #0056b3;
+}
+
+body.dark-mode #response-container {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+body.dark-mode #tours-container {
+    border-top-color: #444;
 }

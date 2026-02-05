@@ -2,15 +2,15 @@
 
 ## Overview
 
-This application is a "Traveller Chatbot" that provides cultural do's and don'ts for a given country. The chatbot helps travellers understand and respect local traditions, religious customs, and laws to avoid offending locals.
+This application is a "Traveller Chatbot" that provides cultural do's and don'ts for a given country. The chatbot helps travellers understand and respect local traditions, religious customs, and laws to avoid offending locals. It also provides suggestions for tours and excursions.
 
 ## Style, Design, and Features
 
 ### Current Version
 
 *   **Input:** A dropdown menu to select a country.
-*   **Submit Button:** A "Get" button to submit the country selection.
-*   **Display Area:** A section to display the do's and don'ts provided by the chatbot.
+*   **Submit Button:** A "Get Advice" button to submit the country selection.
+*   **Display Area:** A section to display the do's and don'ts and a section for suggested tours and excursions with clickable links.
 *   **Styling:**
     *   Clean and simple layout.
     *   User-friendly interface.
@@ -24,13 +24,13 @@ This application is a "Traveller Chatbot" that provides cultural do's and don'ts
 2.  **Create `index.html`:**
     *   Add a heading for the chatbot.
     *   Add a dropdown menu for country selection.
-    *   Add a "Get" button to submit.
-    *   Add a container for the chatbot's response.
+    *   Add a "Get Advice" button to submit.
+    *   Add a container for the chatbot's response, including a section for tours.
 3.  **Create `style.css`:**
     *   Add basic styling for the layout, dropdown, button, and response container.
     *   Use a modern and clean design.
 4.  **Create `main.js`:**
-    *   Add an event listener to the "Get" button.
+    *   Add an event listener to the "Get Advice" button.
     *   On button click, get the selected country from the dropdown menu.
-    *   **Chatbot Logic:** When the user provides a country, I will generate the do's and don'ts based on my knowledge.
-    *   Display the generated do's and don'ts in the response area.
+    *   **Chatbot Logic:** When the user provides a country, I will generate the do's and don'ts and the suggested tours with links based on my knowledge.
+    *   Display the generated information in the response area.
